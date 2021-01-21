@@ -1,4 +1,4 @@
-QT += gui opengl xml concurrent network
+QT += gui opengl xml concurrent network core5compat
 
 TARGET = YUView
 TEMPLATE = app
