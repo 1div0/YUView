@@ -1,9 +1,9 @@
-QT += gui opengl xml concurrent network core5compat
+QT += gui opengl xml concurrent network
 
 TARGET = YUView
 TEMPLATE = app
 CONFIG += c++11
-CONFIG -= debug_and_release
+CONFIG += debug_and_release
 
 SOURCES += $$files(src/*.cpp, false)
 HEADERS += $$files(src/*.h, false)
