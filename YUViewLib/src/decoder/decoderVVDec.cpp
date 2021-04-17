@@ -128,7 +128,7 @@ QStringList decoderVVDec::getLibraryNames()
   // On windows and linux ommitting the extension works
   QStringList names;
   if (is_Q_OS_LINUX)
-    names << "libvvdecLib";
+    names << "vvdec-s";
   if (is_Q_OS_MAC)
     names << "libvvdecLib.dylib";
   if (is_Q_OS_WIN)
@@ -140,31 +140,31 @@ QStringList decoderVVDec::getLibraryNames()
 void decoderVVDec::resolveLibraryFunctionPointers()
 {
   // Get/check function pointers
-  if (!resolve(this->lib.libvvdec_get_version, "libvvdec_get_version"))
+  if (!resolve(this->lib.libvvdec_get_version, "vvdec_get_version"))
     return;
-  if (!resolve(this->lib.libvvdec_new_decoder, "libvvdec_new_decoder"))
+  if (!resolve(this->lib.libvvdec_new_decoder, "vvdec_new_decoder"))
     return;
-  if (!resolve(this->lib.libvvdec_set_logging_callback, "libvvdec_set_logging_callback"))
+  if (!resolve(this->lib.libvvdec_set_logging_callback, "vvdec_set_logging_callback"))
     return;
-  if (!resolve(this->lib.libvvdec_free_decoder, "libvvdec_free_decoder"))
+  if (!resolve(this->lib.libvvdec_free_decoder, "vvdec_free_decoder"))
     return;
-  if (!resolve(this->lib.libvvdec_push_nal_unit, "libvvdec_push_nal_unit"))
+  if (!resolve(this->lib.libvvdec_push_nal_unit, "vvdec_push_nal_unit"))
     return;
 
-  if (!resolve(this->lib.libvvdec_get_picture_POC, "libvvdec_get_picture_POC"))
+  if (!resolve(this->lib.libvvdec_get_picture_POC, "vvdec_get_picture_POC"))
     return;
-  if (!resolve(this->lib.libvvdec_get_picture_width, "libvvdec_get_picture_width"))
+  if (!resolve(this->lib.libvvdec_get_picture_width, "vvdec_get_picture_width"))
     return;
-  if (!resolve(this->lib.libvvdec_get_picture_height, "libvvdec_get_picture_height"))
+  if (!resolve(this->lib.libvvdec_get_picture_height, "vvdec_get_picture_height"))
     return;
-  if (!resolve(this->lib.libvvdec_get_picture_stride, "libvvdec_get_picture_stride"))
+  if (!resolve(this->lib.libvvdec_get_picture_stride, "vvdec_get_picture_stride"))
     return;
-  if (!resolve(this->lib.libvvdec_get_picture_plane, "libvvdec_get_picture_plane"))
+  if (!resolve(this->lib.libvvdec_get_picture_plane, "vvdec_get_picture_plane"))
     return;
   if (!resolve(this->lib.libvvdec_get_picture_chroma_format,
-               "libvvdec_get_picture_chroma_format"))
+               "vvdec_get_picture_chroma_format"))
     return;
-  if (!resolve(this->lib.libvvdec_get_picture_bit_depth, "libvvdec_get_picture_bit_depth"))
+  if (!resolve(this->lib.libvvdec_get_picture_bit_depth, "vvdec_get_picture_bit_depth"))
     return;
 }
 
@@ -174,7 +174,7 @@ template <typename T> T decoderVVDec::resolve(T &fun, const char *symbol, bool o
   if (!ptr)
   {
     if (!optional)
-      setError(QStringLiteral("Error loading the libde265 library: Can't find function %1.")
+      setError(QStringLiteral("Error loading the VVdeC library: Can't find function %1.")
                    .arg(symbol));
     return nullptr;
   }

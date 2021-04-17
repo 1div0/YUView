@@ -79,11 +79,11 @@ public:
   QByteArray getRawFrameData() override;
   bool       pushData(QByteArray &data) override;
 
-  // Check if the given library file is an existing libde265 decoder that we can use.
+  // Check if the given library file is an existing libvvdec decoder that we can use.
   static bool checkLibraryFile(QString libFilePath, QString &error);
 
   QString getDecoderName() const override;
-  QString getCodecName() override { return "hevc"; }
+  QString getCodecName() override { return "vvc"; }
 
   int nrSignalsSupported() const override { return nrSignals; }
 
