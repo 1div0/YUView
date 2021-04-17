@@ -599,11 +599,7 @@ void playlistItemCompressedVideo::loadRawData(int frameIdx, bool caching)
       // Seek and update the frame counters. The seekToPosition function will update the
       // currentFrameIdx[] indices
       this->readAnnexBFrameCounterCodingOrder = int(seekToFrame);
-      DEBUG_COMPRESSED(
-          "playlistItemCompressedVideo::loadRawData seeking to frame %d PTS %d AnnexBCnt %d",
-          seekToFrame,
-          seekToDTS,
-          readAnnexBFrameCounterCodingOrder);
+      DEBUG_COMPRESSED("playlistItemCompressedVideo::loadRawData seeking to frame %d PTS %d AnnexBCnt %d", seekToFrame, seekToDTS, readAnnexBFrameCounterCodingOrder);
       this->seekToPosition(this->readAnnexBFrameCounterCodingOrder, seekToDTS, caching);
     }
   }
