@@ -1,4 +1,4 @@
-QT += gui widgets opengl xml concurrent network
+QT += gui opengl xml concurrent network core5compat
 
 TEMPLATE = lib
 CONFIG += staticlib
